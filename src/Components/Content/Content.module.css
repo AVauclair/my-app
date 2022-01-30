@@ -1,0 +1,9 @@
+.main_content {
+  grid-area: main_content;
+  background-color: brown;
+}
+
+.picture img {
+  width: 50%;
+  display: block;
+}
