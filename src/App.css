@@ -8,9 +8,14 @@
 
   grid-template-areas: 
   "header header"
-  "nav main_content";
+  "nav main-content";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
 
   color: white;
+}
+
+.main-content {
+  grid-area: main-content;
+  background-color: brown;
 }
