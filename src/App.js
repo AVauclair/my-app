@@ -2,12 +2,12 @@ import './App.css';
 import Header from './Components/Header/Header.jsx';
 import Navigation from './Components/Navigation/Navigation.jsx';
 import Profile from './Components/Content/Profile/Profile.jsx';
-import Messages from './Components/Content/Messages/Messages.jsx';
+import MessagesPage from './Components/Content/MessagesPage/MessagesPage.jsx';
 import News from './Components/Content/News/News.jsx';
 import Friends from './Components/Content/Friends/Friends.jsx';
 import Audio from './Components/Content/AudioPage/Audio.jsx';
 import Settings from './Components/Content/SettingsPage/Settings.jsx';
-import {Route, Routes, BrowserRouter} from 'react-router-dom';
+import {Route, Routes, BrowserRouter, Navigate} from 'react-router-dom';
 
 function App() {
   return (
@@ -18,9 +18,10 @@ function App() {
 
           <div className = "main-content">
             <Routes>
+              <Route path = "/" element = {<Navigate replace to = "/profile"/>}/>
               <Route path = "/profile" element = {<Profile/>}/>
               <Route path = "/news" element = {<News/>}/>
-              <Route path = "/messages" element = {<Messages/>}/>
+              <Route path = "/messages" element = {<MessagesPage/>}/>
               <Route path = "/friends" element = {<Friends/>}/>
               <Route path = "/audio" element = {<Audio/>}/>
               <Route path = "/settings" element = {<Settings/>}/>

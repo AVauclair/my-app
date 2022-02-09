@@ -1,17 +1,26 @@
-.nav {
-    grid-area: nav;
-    background-color: black;
-  }
-  
-.nav ul {
-    padding: 0;
-    margin: 0;
-}
-  
-.nav li {
-    list-style: none;
+.navigationPage {
+  grid-area: nav;
+  background-color: black;
 }
 
-.item {
-    color: red;
+.navigationPage ul {
+  padding: 0;
+  margin: 0;
+}
+
+.navigationPage li {
+  list-style: none;
+}
+
+.item a {
+  color: white;
+  text-decoration: none;
+}
+
+.item a:hover {
+  color: gray;
+}
+
+.item a.active {
+  color: gold;
 }

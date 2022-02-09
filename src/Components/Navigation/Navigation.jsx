@@ -1,17 +1,20 @@
 import module from './Navigation.module.css';
+import {NavLink} from 'react-router-dom';
 
 const Navigation = (props) => {
     return (
-        <nav className = {module.nav}>
-          <ul className = {module.nav}>
-            <li className = {module.item}><a href = "/profile">My Page</a></li>
-            <li className = {module.item}><a href = "/news">News</a></li>
-            <li className = {module.item}><a href = "/messages">Messages</a></li>
-            <li className = {module.item}><a href = "/friends">Friends</a></li>
-            <li className = {module.item}><a href = "/audio">Music</a></li>
-            <li className = {module.item}><a href = "/settings">Settings</a></li>
+      <div className={module.navigationPage}>
+        <nav className={module.nav}>
+          <ul className={module.nav}>
+            <li className={module.item}><NavLink to="/profile" className={navData => navData.isActive ? module.active : ''}>My Page</NavLink></li>
+            <li className={module.item}><NavLink to="/news" className={navData => navData.isActive ? module.active : ''}>News</NavLink></li>
+            <li className={module.item}><NavLink to="/messages" className={navData => navData.isActive ? module.active : ''}>Messages</NavLink></li>
+            <li className={module.item}><NavLink to="/friends" className={navData => navData.isActive ? module.active : ''}>Friends</NavLink></li>
+            <li className={module.item}><NavLink to="/audio" className={navData => navData.isActive ? module.active : ''}>Music</NavLink></li>
+            <li className={module.item}><NavLink to="/settings" className={navData => navData.isActive ? module.active : ''}>Settings</NavLink></li>
           </ul>
-      </nav>
+        </nav>
+      </div>
     );
 }
 

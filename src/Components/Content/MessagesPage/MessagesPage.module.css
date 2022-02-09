@@ -1,0 +1,7 @@
+.messagesPage {
+  display: grid;
+  grid-template-areas: 'chat messages';
+  grid-template-columns: 2fr 10fr;
+
+  padding: 20px;
+}

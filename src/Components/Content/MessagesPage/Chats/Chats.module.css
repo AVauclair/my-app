@@ -1,0 +1,13 @@
+.chats {
+  grid-area: chat;
+  color: white;
+}
+
+.chats ul {
+  padding: 0;
+  margin: 0;
+}
+
+.chats li {
+  list-style: none;
+}
