@@ -2,11 +2,12 @@ import module from './Messages.module.css'
 import Message from './Message/Message.jsx'
 
 const Messages = (props) => {
+
+  let messagesElements = props.state.messages.map(m => <Message text={m.text}/>)
+
   return (
     <div className={module.messages}>
-      <Message text="Bonsoirt Elliot" />
-      <Message text="Huba-buba" />
-      <Message text="WHO WANTS TO LIVE FOREVER" />
+      {messagesElements}
     </div>
   )
 }

@@ -1,3 +1,7 @@
+.chat {
+  
+}
+
 .chat:hover {
   color: gray;
   cursor: pointer;
@@ -14,4 +18,11 @@
 
 .item a.active {
   color: gold;
+}
+
+.avatar {
+  border-radius: 200px;
+  width: 25px;
+  text-align: center;
+  display: inline;
 }

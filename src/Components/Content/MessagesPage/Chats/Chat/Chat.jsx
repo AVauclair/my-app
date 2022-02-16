@@ -9,7 +9,7 @@ const Chat = (props) => {
           to={'/dialogs + {props.id}'}
           className={(navData) => (navData.isActive ? module.active : '')}
         >
-          {props.name}
+          <img src = {props.avatar} className={module.avatar}/> {props.name}
         </NavLink>
       </li>
     </div>

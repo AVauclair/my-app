@@ -5,8 +5,8 @@ import Chats from './Chats/Chats.jsx'
 const MessagesPage = (props) => {
   return (
     <div className={module.messagesPage}>
-      <Chats />
-      <Messages />
+      <Chats state={props.state.messagesPage}/>
+      <Messages state={props.state.messagesPage}/>
     </div>
   )
 }

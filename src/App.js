@@ -9,7 +9,7 @@ import Audio from './Components/Content/AudioPage/Audio.jsx';
 import Settings from './Components/Content/SettingsPage/Settings.jsx';
 import {Route, Routes, BrowserRouter, Navigate} from 'react-router-dom';
 
-function App() {
+const App = (props) => {
   return (
     <BrowserRouter>
         <div className = "app-body">
@@ -19,9 +19,9 @@ function App() {
           <div className = "main-content">
             <Routes>
               <Route path = "/" element = {<Navigate replace to = "/profile"/>}/>
-              <Route path = "/profile" element = {<Profile/>}/>
+              <Route path = "/profile" element = {<Profile state={props.state}/>}/>
               <Route path = "/news" element = {<News/>}/>
-              <Route path = "/messages" element = {<MessagesPage/>}/>
+              <Route path = "/messages" element = {<MessagesPage state={props.state}/>}/>
               <Route path = "/friends" element = {<Friends/>}/>
               <Route path = "/audio" element = {<Audio/>}/>
               <Route path = "/settings" element = {<Settings/>}/>
