@@ -5,3 +5,11 @@
 
   padding: 20px;
 }
+
+textarea {
+
+}
+
+button {
+  display: flex;
+}
