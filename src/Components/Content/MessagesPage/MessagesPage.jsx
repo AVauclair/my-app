@@ -12,7 +12,7 @@ const MessagesPage = (props) => {
 
   let onChangeMessageText = () => {
     let text = newMessageElement.current.value;
-    props.updateMessageText(text);
+    props.dispatch({type: "UPDATE-MESSAGE-TEXT", currentMessageText: text});
   }
 
   return (

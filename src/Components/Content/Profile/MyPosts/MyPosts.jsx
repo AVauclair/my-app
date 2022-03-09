@@ -8,7 +8,7 @@ const MyPosts = (props) => {
 
   return (
     <div className={module.MyPostsPage}>
-      <AddPost addPost={props.addPost} updatePostText={props.updatePostText} postText={props.state.profilePage.postText}/>
+      <AddPost dispatch={props.dispatch} postText={props.state.profilePage.postText}/>
 
       <br />
 

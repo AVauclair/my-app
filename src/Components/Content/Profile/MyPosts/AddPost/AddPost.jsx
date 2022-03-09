@@ -5,13 +5,12 @@ const AddPost = (props) => {
   let newPostElement = React.createRef();
 
   let addPost = () => {
-    props.addPost(props.postText);
+    props.dispatch({type: "ADD-POST"})
   }
 
   let onPostTextChange = () => {
-    debugger;
     let text = newPostElement.current.value;
-    props.updatePostText(text);
+    props.dispatch({type: "UPDATE-POST-TEXT", currentPostText: text})
   }
 
   return (
