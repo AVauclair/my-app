@@ -1,15 +1,14 @@
 import module from './MyPosts.module.css'
 import Post from './Post/Post.jsx'
-import AddPost from './AddPost/AddPost.jsx'
+import AddPostContainer from './AddPost/AddPostContainer.jsx'
 
 const MyPosts = (props) => {
 
-  let postsElements = props.state.profilePage.posts.map(p => <Post text={p.text} likes={p.likes}/>)
+  let postsElements = props.storeRedux.getState().profilePage.posts.map(p => <Post text={p.text} likes={p.likes}/>)
 
   return (
     <div className={module.MyPostsPage}>
-      <AddPost dispatch={props.dispatch} areaPostText={props.state.profilePage.areaPostText}/>
-
+      <AddPostContainer storeRedux={props.storeRedux}/>
       <br />
 
       <div className={module.posts}>

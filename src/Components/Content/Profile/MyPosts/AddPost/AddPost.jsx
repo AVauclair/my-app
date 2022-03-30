@@ -1,19 +1,18 @@
 import module from './AddPost.module.css'
 import React from 'react'
-import {addPostActionCreater, updatePostTextActionCreater} from './../../../../../redux/reducers/profileReducer'
 
 const AddPost = (props) => {
   let newPostElement = React.createRef();
 
-  let addPost = () => {
-    props.dispatch(addPostActionCreater())
+  let onAddPost = () => {
+    props.addPost();
   }
 
   let onPostTextChange = () => {
     let text = newPostElement.current.value;
-    props.dispatch(updatePostTextActionCreater(text))
+    props.onPostTextChange(text);
   }
-
+  
   return (
     <div className={module.addPost}>
       <div>
@@ -22,7 +21,7 @@ const AddPost = (props) => {
           <textarea onChange={onPostTextChange} ref={newPostElement} value={props.areaPostText}/>
         </div>
         <div>
-          <button onClick={addPost}>Add post</button>
+          <button onClick={onAddPost}>Add post</button>
         </div>
       </div>
     </div>
