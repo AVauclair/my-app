@@ -1,14 +1,12 @@
 import module from './MyPosts.module.css'
-import Post from './Post/Post.jsx'
 import AddPostContainer from './AddPost/AddPostContainer.jsx'
 
 const MyPosts = (props) => {
-
-  let postsElements = props.storeRedux.getState().profilePage.posts.map(p => <Post text={p.text} likes={p.likes}/>)
+  let postsElements = props.postsElements
 
   return (
     <div className={module.MyPostsPage}>
-      <AddPostContainer storeRedux={props.storeRedux}/>
+      <AddPostContainer />
       <br />
 
       <div className={module.posts}>

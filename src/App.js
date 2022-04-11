@@ -10,6 +10,7 @@ import {Route, Routes, BrowserRouter, Navigate} from 'react-router-dom';
 import MessagesPageContainter from './Components/Content/MessagesPage/MessagesPageContainter';
 
 const App = (props) => {
+  debugger;
   return (
     <BrowserRouter>
         <div className = "app-body">
@@ -19,9 +20,9 @@ const App = (props) => {
           <div className = "main-content">
             <Routes>
               <Route path = "/" element = {<Navigate replace to = "/profile"/>}/>
-              <Route path = "/profile" element = {<Profile storeRedux={props.storeRedux}/>}/>
+              <Route path = "/profile" element = {<Profile />}/>
               <Route path = "/news" element = {<News/>}/>
-              <Route path = "/messages" element = {<MessagesPageContainter storeRedux={props.storeRedux}/>}/>
+              <Route path = "/messages" element = {<MessagesPageContainter />}/>
               <Route path = "/friends" element = {<Friends/>}/>
               <Route path = "/audio" element = {<Audio/>}/>
               <Route path = "/settings" element = {<Settings/>}/>
