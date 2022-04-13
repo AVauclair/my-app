@@ -10,7 +10,6 @@ import {Route, Routes, BrowserRouter, Navigate} from 'react-router-dom';
 import MessagesPageContainter from './Components/Content/MessagesPage/MessagesPageContainter';
 
 const App = (props) => {
-  debugger;
   return (
     <BrowserRouter>
         <div className = "app-body">

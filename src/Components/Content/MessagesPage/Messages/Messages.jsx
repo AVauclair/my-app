@@ -3,7 +3,7 @@ import Message from './Message/Message.jsx'
 
 const Messages = (props) => {
 
-  let messagesElements = props.state.messages.map(m => <Message text={m.text}/>)
+  let messagesElements = props.state.messages.map(m => <Message text={m.text} key={m.id}/>)
 
   return (
     <div className={module.messages}>

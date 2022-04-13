@@ -4,7 +4,7 @@ import Post from "./Post/Post"
 
 let mapStateToProps = (state) => {
     return {
-        postsElements: state.profilePage.posts.map(p => <Post text={p.text} likes={p.likes}/>)
+        postsElements: state.profilePage.posts.map(p => <Post text={p.text} likes={p.likes} key={p.id}/>)
     }
 }
 

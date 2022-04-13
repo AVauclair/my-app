@@ -13,9 +13,9 @@ const MessagesPage = (props) => {
 
   let onChangeMessageText = () => {
     let text = newMessageElement.current.value;
-    props.changeMessageText(text)
+    props.onChangeMessageText(text)
   }
-debugger
+
   return (
     <div className={module.messagesPage}>
       <Chats state={props.state.messagesPage}/>

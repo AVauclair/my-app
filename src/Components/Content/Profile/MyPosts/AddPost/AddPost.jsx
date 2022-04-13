@@ -2,7 +2,6 @@ import module from './AddPost.module.css'
 import React from 'react'
 
 const AddPost = (props) => {
-  debugger;
   let newPostElement = React.createRef();
 
   let onAddPost = () => {

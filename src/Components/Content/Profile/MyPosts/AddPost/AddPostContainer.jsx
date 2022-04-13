@@ -4,13 +4,13 @@ import {connect} from 'react-redux';
 
 let mapStateToProps = (state) => {
   return {
-    areaPostText: state.profilePage.areaPostText
+    areaPostText: state.profilePage.areaPostText,
   }
 }
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    addPost: () => {dispatch(addPostActionCreater)},
+    addPost: () => {dispatch(addPostActionCreater())},
     onPostTextChange: (text) => {dispatch(updatePostTextActionCreater(text))}
   }
 }
