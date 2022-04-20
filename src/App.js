@@ -8,6 +8,7 @@ import Audio from './Components/Content/AudioPage/Audio.jsx';
 import Settings from './Components/Content/SettingsPage/Settings.jsx';
 import {Route, Routes, BrowserRouter, Navigate} from 'react-router-dom';
 import MessagesPageContainter from './Components/Content/MessagesPage/MessagesPageContainter';
+import UsersPageContainer from './Components/Content/UsersPage/UsersPageContainer';
 
 const App = (props) => {
   return (
@@ -25,6 +26,7 @@ const App = (props) => {
               <Route path = "/friends" element = {<Friends/>}/>
               <Route path = "/audio" element = {<Audio/>}/>
               <Route path = "/settings" element = {<Settings/>}/>
+              <Route path = "/users" element = {<UsersPageContainer/>}/>
             </Routes>
           </div>
         </div>

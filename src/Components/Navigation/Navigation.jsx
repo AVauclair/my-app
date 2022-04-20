@@ -12,6 +12,7 @@ const Navigation = (props) => {
             <li className={module.item}><NavLink to="/friends" className={navData => navData.isActive ? module.active : ''}>Friends</NavLink></li>
             <li className={module.item}><NavLink to="/audio" className={navData => navData.isActive ? module.active : ''}>Music</NavLink></li>
             <li className={module.item}><NavLink to="/settings" className={navData => navData.isActive ? module.active : ''}>Settings</NavLink></li>
+            <li className={module.item}><NavLink to="/users" className={navData => navData.isActive ? module.active : ''}>Users</NavLink></li>
           </ul>
         </nav>
       </div>
