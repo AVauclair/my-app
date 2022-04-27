@@ -1,46 +1,44 @@
+import React from "react"
 import module from "./UsersPage.module.css";
+import * as axios from "axios";
 
-let UsersPage = (props) => {
-    debugger;
-    if (props.users.length === 0)
-    {
-        props.fillUsers([
-                { id: 1, avatarURL: 'https://ic.pics.livejournal.com/guruken/3263337/4711/4711_800.jpg', 
-                followed: true, userName: 'Dmitry', status: 'Status', location: { city: 'Astana', country: 'Kazakhstan' } },
-                { id: 2, avatarURL: 'https://ic.pics.livejournal.com/guruken/3263337/4711/4711_800.jpg', 
-                followed: false, userName: 'Valera', status: 'KEK', location: { city: 'Sochi', country: 'Bolgaria' } },
-                { id: 3, avatarURL: 'https://ic.pics.livejournal.com/guruken/3263337/4711/4711_800.jpg', 
-                followed: true, userName: 'Nikita', status: 'AAA', location: { city: 'Kiev', country: 'Ukraina' } }
-            ]
-        )
+class UsersPage extends React.Component {
+    componentDidMount = () => {
+        axios
+        .get("https://social-network.samuraijs.com/api/1.0/users")
+        .then(response => {
+            this.props.fillUsers(response.data.items)
+        })
     }
 
-    return (
-        props.users.map(u => 
-        <div key={u.id}>
-            <span>
-                <div>
-                    <img src={u.avatarURL} className={module.userAvatar}/>
-                </div>
-                <div>
-                    { u.followed 
-                    ? <button onClick={() => {props.unfollow(u.id)}}>Unfollow</button>
-                    : <button onClick={() => {props.follow(u.id)}}>Follow</button>}
-                </div>
-            </span>
-            <span>
+    render() {
+        return (
+            this.props.users.map(u => 
+            <div key={u.id}>
                 <span>
-                    <div>{u.userName}</div>
-                    <div>{u.status}</div>
+                    <div>
+                        <img src={u.photos.small != null ? u.photos.small : "https://sc04.alicdn.com/kf/UTB8jhPZin_IXKJkSalUq6yBzVXay.jpg"} className={module.userAvatar}/>
+                    </div>
+                    <div>
+                        { u.followed 
+                        ? <button onClick={() => {this.props.unfollow(u.id)}}>Unfollow</button>
+                        : <button onClick={() => {this.props.follow(u.id)}}>Follow</button>}
+                    </div>
                 </span>
                 <span>
-                    <div>{u.location.city}</div>
-                    <div>{u.location.country}</div>
+                    <span>
+                        <div>{u.userName}</div>
+                        <div>{u.status}</div>
+                    </span>
+                    <span>
+                        <div>{"u.location.city"}</div>
+                        <div>{"u.location.country"}</div>
+                    </span>
                 </span>
-            </span>
-        </div>
+            </div>
+            )
         )
-    )
+    }
 }
 
 export default UsersPage;
