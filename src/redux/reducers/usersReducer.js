@@ -2,16 +2,14 @@ const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SHOW_MORE = "SHOW_MORE";
 const FILL_USERS = "FILL_USERS";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 
 let initialState = {
-    users: [
-        // { id: 1, avatarURL: '', 
-        // followed: true, userName: "Dmitry", status: "Status", location: { city: "Astana", country: "Kazakhstan" } },
-        // { id: 2, avatarURL: 'https://ic.pics.livejournal.com/guruken/3263337/4711/4711_800.jpg', 
-        // followed: false, userName: "Valera", status: "KEK", location: { city: "sochi", country: "bolgaria" } },
-        // { id: 3, avatarURL: 'https://ic.pics.livejournal.com/guruken/3263337/4711/4711_800.jpg', 
-        // followed: true, userName: "Nikita", status: "AAA", location: { city: "kiev", country: "ukraina" } },
-    ]
+    users: [    ],
+    currentPage: 1,
+    pageSize: 5,
+    totalUsersCount: 0,
 }
 
 let usersReducer = (state = initialState, action) => {
@@ -43,6 +41,12 @@ let usersReducer = (state = initialState, action) => {
         case FILL_USERS:
             return { ...state, users: [...action.users] }
 
+        case SET_CURRENT_PAGE:
+            return {...state, currentPage: action.currentPage}
+
+        case SET_TOTAL_USERS_COUNT:
+            return {...state, totalUsersCount: action.totalUsersCount}
+
         default:
             return state
     }
@@ -65,6 +69,16 @@ export const fillUsersActionCreator = (users) => ({
 
 export const showMoreUsersActionCreator = () => ({
     type: SHOW_MORE,
+})
+
+export const setTotalUsersCountActionCreator = (totalUsersCount) => ({
+    type: SET_TOTAL_USERS_COUNT,
+    totalUsersCount: totalUsersCount
+})
+
+export const setCurrentPageActionCreator = (currentPage) => ({
+    type: SET_CURRENT_PAGE,
+    currentPage: currentPage,
 })
 
 export default usersReducer;
