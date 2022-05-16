@@ -1,5 +1,6 @@
 import React from "react"
 import module from "./UsersPage.module.css";
+import {NavLink} from 'react-router-dom';
 
 let UsersPage = (props) => {
     let pageCount = Math.ceil(props.totalUsersCount/props.pageSize);
@@ -21,7 +22,9 @@ let UsersPage = (props) => {
             <div key={u.id}>
                 <span>
                 <div>
+                    <NavLink to={`/profile/${u.id}`}>
                     <img src={u.photos.small != null ? u.photos.small : "https://sc04.alicdn.com/kf/UTB8jhPZin_IXKJkSalUq6yBzVXay.jpg"} className={module.userAvatar}/>
+                    </NavLink>
                 </div>
                 <div>
                     {   

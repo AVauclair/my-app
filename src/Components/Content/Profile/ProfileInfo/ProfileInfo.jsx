@@ -1,6 +1,11 @@
+import Preloader from '../../../../common/Preloader/Preloader'
 import module from './ProfileInfo.module.css'
 
 const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return <Preloader/>
+  }
+
   return (
     <div className={module.profileInfoPage}>
       Main content
@@ -10,7 +15,10 @@ const ProfileInfo = (props) => {
           alt="not found"
         />
       </div>
-      <div>ava + desc</div>
+      <div className={module.descriptionBlock}>
+        <img src={props.profile.photos.large}/>
+        {props.profile.aboutMe}
+      </div>
     </div>
   )
 }

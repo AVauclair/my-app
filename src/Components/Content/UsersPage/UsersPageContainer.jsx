@@ -1,5 +1,5 @@
 import UsersPage from "./UsersPage";
-import { followActionCreator, unfollowActionCreator, fillUsersActionCreator, setCurrentPageActionCreator, setTotalUsersCountActionCreator, toggleIsFetchingActionCreator } from "./../../../redux/reducers/usersReducer"
+import { follow, unfollow, fillUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from "./../../../redux/reducers/usersReducer"
 import {connect} from "react-redux"
 import React from "react"
 import * as axios from "axios";
@@ -30,7 +30,6 @@ class UsersComponent extends React.Component {
         }
 
         render() {
-            debugger
             return <>
             {this.props.isFetching ? <Preloader/> : null}
             <UsersPage
@@ -55,17 +54,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userID) => {dispatch(followActionCreator(userID))},
-        unfollow: (userID) => {dispatch(unfollowActionCreator(userID))},
-        fillUsers: (users) => {dispatch(fillUsersActionCreator(users))},
-        setCurrentPage: (currentPage) => {dispatch(setCurrentPageActionCreator(currentPage))},
-        setTotalUsersCount: (totalUsersCount) => {dispatch(setTotalUsersCountActionCreator(totalUsersCount))},
-        toggleIsFetching: (isFetching) => {dispatch(toggleIsFetchingActionCreator(isFetching))}
-    }
-}
-
-let UsersPageContainer = connect(mapStateToProps, mapDispatchToProps)(UsersComponent);
+let UsersPageContainer = connect(mapStateToProps, { follow, unfollow, fillUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching})(UsersComponent);
 
 export default UsersPageContainer

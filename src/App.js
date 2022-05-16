@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './Components/Header/Header.jsx';
 import Navigation from './Components/Navigation/Navigation.jsx';
-import Profile from './Components/Content/Profile/Profile.jsx';
+import ProfileContainer from './Components/Content/Profile/ProfileContainer.jsx';
 import News from './Components/Content/News/News.jsx';
 import Friends from './Components/Content/Friends/Friends.jsx';
 import Audio from './Components/Content/AudioPage/Audio.jsx';
@@ -20,7 +20,7 @@ const App = (props) => {
           <div className = "main-content">
             <Routes>
               <Route path = "/" element = {<Navigate replace to = "/profile"/>}/>
-              <Route path = "/profile" element = {<Profile />}/>
+              <Route path = "/profile" element = {<ProfileContainer />}/>
               <Route path = "/news" element = {<News/>}/>
               <Route path = "/messages" element = {<MessagesPageContainter />}/>
               <Route path = "/friends" element = {<Friends/>}/>
