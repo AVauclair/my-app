@@ -20,7 +20,8 @@ const App = (props) => {
           <div className = "main-content">
             <Routes>
               <Route path = "/" element = {<Navigate replace to = "/profile"/>}/>
-              <Route path = "/profile" element = {<ProfileContainer />}/>
+              <Route path = "/profile/:userID" element = {<ProfileContainer />}/>
+              <Route path ='/profile' element={<ProfileContainer />} />
               <Route path = "/news" element = {<News/>}/>
               <Route path = "/messages" element = {<MessagesPageContainter />}/>
               <Route path = "/friends" element = {<Friends/>}/>

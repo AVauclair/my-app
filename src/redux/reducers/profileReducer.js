@@ -23,7 +23,6 @@ let initialState = {
   areaPostText: "just imagine",
 
   profile: null,
-  userID: 2,
 };
 
 const profileReducer = (state = initialState, action) => {
