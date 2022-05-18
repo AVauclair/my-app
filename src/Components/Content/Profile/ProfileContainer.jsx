@@ -9,7 +9,7 @@ class ProfileContainer extends React.Component {
     componentDidMount = () => {
         let userID = this.props.router.params.userID
         axios
-        .get(`https://social-network.samuraijs.com/api/1.0/profile/${userID}`,)
+        .get(`https://social-network.samuraijs.com/api/1.0/profile/${userID}`, {withCredentials: true})
         .then(response => {
             this.props.setUserProfile(response.data)
         })
