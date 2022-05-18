@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './Components/Header/Header.jsx';
+import HeaderContainer from './Components/Header/HeaderContainer.jsx';
 import Navigation from './Components/Navigation/Navigation.jsx';
 import ProfileContainer from './Components/Content/Profile/ProfileContainer.jsx';
 import News from './Components/Content/News/News.jsx';
@@ -14,7 +14,7 @@ const App = (props) => {
   return (
     <BrowserRouter>
         <div className = "app-body">
-          <Header/>
+          <HeaderContainer/>
           <Navigation/>
 
           <div className = "main-content">

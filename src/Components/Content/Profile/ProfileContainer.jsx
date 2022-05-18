@@ -22,10 +22,6 @@ class ProfileContainer extends React.Component {
     }
 }
 
-const TakeParams = (props) => {
-    return <ProfileContainer {...props} param={useParams} />
-}
-
 function withRouter(Component) {
     function ComponentWithRouterProp(props) {
         let location = useLocation();
