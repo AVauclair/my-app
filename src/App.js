@@ -9,6 +9,7 @@ import Settings from './Components/Content/SettingsPage/Settings.jsx';
 import {Route, Routes, BrowserRouter, Navigate} from 'react-router-dom';
 import MessagesPageContainter from './Components/Content/MessagesPage/MessagesPageContainter';
 import UsersPageContainer from './Components/Content/UsersPage/UsersPageContainer';
+import LoginPage from './Components/Login/LoginPage';
 
 const App = (props) => {
   return (
@@ -28,6 +29,7 @@ const App = (props) => {
               <Route path = "/audio" element = {<Audio/>}/>
               <Route path = "/settings" element = {<Settings/>}/>
               <Route path = "/users" element = {<UsersPageContainer/>}/>
+              <Route path = "/login" element= {<LoginPage/>}/>
             </Routes>
           </div>
         </div>

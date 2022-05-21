@@ -3,8 +3,9 @@ import { follow, unfollow, setCurrentPage, getUsers, } from "./../../../redux/re
 import {connect} from "react-redux"
 import React from "react"
 import Preloader from './../../../common/Preloader/Preloader'
+import { withAuthRedirect } from "../../../hocs/withAuthRedirect";
 
-class UsersComponent extends React.Component {
+class UsersContainer extends React.Component {
     componentDidMount = () => {
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
@@ -41,6 +42,8 @@ let mapStateToProps = (state) => {
     }
 }
 
-let UsersPageContainer = connect(mapStateToProps, { follow, unfollow, setCurrentPage, getUsers})(UsersComponent);
+let AuthRedirect = withAuthRedirect(UsersContainer) 
+
+let UsersPageContainer = connect(mapStateToProps, { follow, unfollow, setCurrentPage, getUsers})(AuthRedirect);
 
 export default UsersPageContainer

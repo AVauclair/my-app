@@ -1,10 +1,11 @@
 import Preloader from '../../../../common/Preloader/Preloader'
 import module from './ProfileInfo.module.css'
+import ProfileStatus from "./ProfileStatus/ProfileStatus"
 
 const ProfileInfo = (props) => {
-  if (!props.profile) {
-    return <Preloader/>
-  }
+  // if (!props.profile) {
+  //   return <Preloader/>
+  // }
 
   return (
     <div className={module.profileInfoPage}>
@@ -16,8 +17,9 @@ const ProfileInfo = (props) => {
         />
       </div>
       <div className={module.descriptionBlock}>
-        <img src={props.profile.photos.large}/>
-        {props.profile.aboutMe}
+        {/* <img src={props.profile.photos.large}/>
+        {props.profile.aboutMe} */}
+        <ProfileStatus status={"бонджурчик"}/>
       </div>
     </div>
   )
