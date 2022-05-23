@@ -1,4 +1,5 @@
 import * as axios from "axios";
+import { setUserStatus } from "../redux/reducers/profileReducer";
 
 let instance = axios.create ({
     withCredentials: true,
@@ -22,11 +23,24 @@ export const UserAPI = {
         .delete(`follow/${userID}`)
         .then(response => response.data)
     },
+}
+
+export const ProfileAPI = {
     getUserProfile(userID) {
         return instance
         .get(`profile/${userID}`)
         .then(response => response.data)
     },
+    getUserStatus(userID) {
+        return instance
+        .get(`profile/status/${userID}`)
+        .then(response => response.data)
+    },
+    updateUserStatus(userStatus) {
+        return instance
+        .put(`profile/status`, {status: userStatus})
+        .then(response => response.data)
+    }
 }
 
 export const AuthAPI = {

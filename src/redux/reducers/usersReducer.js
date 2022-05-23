@@ -112,8 +112,8 @@ export const getUsers = (currentPage, pageSize) => {
             dispatch(toggleIsFetching(false))
             dispatch(fillUsers(data.items))
         
-            data.totalCount > 20 ? dispatch(setTotalUsersCount(20)) : dispatch(setTotalUsersCount(data.totalCount))
-            //dispatch(setTotalUsersCount(data.totalCount))
+            //data.totalCount > 20 ? dispatch(setTotalUsersCount(20)) : dispatch(setTotalUsersCount(data.totalCount))
+            dispatch(setTotalUsersCount(data.totalCount))
         })
     }
 }
