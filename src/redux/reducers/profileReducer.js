@@ -23,8 +23,6 @@ let initialState = {
     }
   ],
 
-  areaPostText: "just imagine",
-
   profile: null,
   userStatus: "",
 };
@@ -35,18 +33,9 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST: {
       return {
         ...state,
-        posts: [...state.posts, {id: state.posts.length + 1, text: state.areaPostText, likes: 0}],
-        areaPostText: '',
+        posts: [...state.posts, {id: state.posts.length + 1, text: action.newPostTextBody, likes: 0}],
       };
     }
-
-    case UPDATE_POST_TEXT: {
-      return {
-        ...state,
-        areaPostText: action.currentPostText,
-      };
-    }
-
     case SET_USER_PROFILE: {
       return {
         ...state,
@@ -67,12 +56,8 @@ const profileReducer = (state = initialState, action) => {
 
 }
 
-export const addPostActionCreater = () => ({
-  type: ADD_POST
-})
-
-export const updatePostTextActionCreater = (currentPostText) => ({
-  type: UPDATE_POST_TEXT, currentPostText
+export const addPostActionCreater = (newPostTextBody) => ({
+  type: ADD_POST, newPostTextBody
 })
 
 export const setUserProfile = (profile) => ({

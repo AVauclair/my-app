@@ -1,4 +1,3 @@
-const UPDATE_MESSAGE_TEXT = "UPDATE-MESSAGE-TEXT"
 const SEND_MESSAGE = "SEND-MESSAGE"
 
 let initialState = {
@@ -41,25 +40,16 @@ let initialState = {
       id: 3,
       text: "WHO WANTS TO LIVE FOREVER"
     },
-  ],
-
-  areaMessageText: "HELLO"
+  ]
 }
 
 const messagesReducer = (state = initialState, action) => {
 
   switch (action.type) {
-    case UPDATE_MESSAGE_TEXT:
-      return {
-        ...state,
-        areaMessageText: action.currentMessageText
-      }
-    
     case SEND_MESSAGE:
       return {
         ...state,
-        areaMessageText: '',
-        messages: [...state.messages, {id: state.messages.length + 1, text: action.currentMessageText}],
+        messages: [...state.messages, {id: state.messages.length + 1, text: action.newMessageBody }],
       }
 
     default:
@@ -67,13 +57,6 @@ const messagesReducer = (state = initialState, action) => {
   }
 }
 
-export const updateMessageTextActionCreator = (text) => ({
-  type: UPDATE_MESSAGE_TEXT,
-  currentMessageText: text
-})
-export const sendMessageActionCreator = (text) => ({
-  type: SEND_MESSAGE,
-  currentMessageText: text
-})
+export const sendMessageActionCreator = (newMessageBody) => ({ type: SEND_MESSAGE, newMessageBody})
 
 export default messagesReducer;

@@ -1,28 +1,17 @@
 import module from './AddPost.module.css'
 import React from 'react'
+import ReduxAddPostForm from './AddPostForm';
 
 const AddPost = (props) => {
-  let newPostElement = React.createRef();
-
-  let onAddPost = () => {
-    props.addPost();
-  }
-
-  let onPostTextChange = () => {
-    let text = newPostElement.current.value;
-    props.onPostTextChange(text);
+  let onAddPost = (values) => {
+    props.addPost(values.newPostTextBody);
   }
   
   return (
     <div className={module.addPost}>
       <div>
         <h1>my posts</h1>
-        <div>
-          <textarea onChange={onPostTextChange} ref={newPostElement} value={props.areaPostText}/>
-        </div>
-        <div>
-          <button onClick={onAddPost}>Add post</button>
-        </div>
+        <ReduxAddPostForm onSubmit={onAddPost}/>
       </div>
     </div>
   )
