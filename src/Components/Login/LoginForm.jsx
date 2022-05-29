@@ -1,6 +1,7 @@
 import {Field, reduxForm} from "redux-form"
 import { Input } from "../../common/FormsControls/FormsControls"
 import {required, maxLengthCreator} from "../../utils/validators/validators"
+import module from "./LoginPage.module.css"
 
 const maxLength20 = maxLengthCreator(20)
 
@@ -12,7 +13,13 @@ const LoginForm = (props) => {
                 validate={[required, maxLength20]}></Field></div>
                 <div><Field placeholder={"Password"} name={"password"} component={Input} type={"password"}
                 validate={[required, maxLength20]}></Field></div>
-                {/* <div><Field type={"checkbox"} name={"rememberMe"} component={"input"}>remember me</Field></div> */}
+                <div>
+                    <Field name={"rememberMe"} component={"Input"} type={"checkbox"}></Field>
+                    <label htmlFor="rememberMe">Remember Me</label>
+                </div>
+                {props.error && <div className={module.formCommonError}>
+                    {props.error}
+                    </div>}
                 <div><button>Login</button></div>
             </div>
         </form>

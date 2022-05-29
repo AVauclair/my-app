@@ -3,9 +3,9 @@ import module from './ProfileInfo.module.css'
 import ProfileStatus from "./ProfileStatus/ProfileStatus"
 
 const ProfileInfo = (props) => {
-  // if (!props.profile) {
-  //   return <Preloader/>
-  // }
+  if (!props.profile) {
+    return <Preloader/>
+  }
 
   return (
     <div className={module.profileInfoPage}>

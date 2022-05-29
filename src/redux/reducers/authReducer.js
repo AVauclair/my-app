@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { AuthAPI } from "../../api/api";
 import { withAuthRedirect } from "../../hocs/withAuthRedirect";
 
@@ -51,6 +52,9 @@ export const login = (email, password, rememberMe) => {
         if (data.resultCode === 0)
         {
             dispatch(getAuthData())
+        } else {
+          let message = data.messages.length > 0 ? data.messages[0] : "Some error"
+          dispatch(stopSubmit("login", {_error: message}))
         }
     })
   }
