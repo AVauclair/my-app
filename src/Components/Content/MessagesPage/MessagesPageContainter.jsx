@@ -1,6 +1,8 @@
 import {sendMessageActionCreator} from '../../../redux/reducers/messagesReducer'
 import MessagesPage from './MessagesPage'
 import {connect} from "react-redux"
+import { withAuthRedirect } from '../../../hocs/withAuthRedirect'
+import { compose } from "redux"
 
 let mapStateToProps = (state) => {
   return {
@@ -14,6 +16,7 @@ let mapDispatchToProps = (dispatch) => {
   }
 }
 
-const MessagesPageContainer = connect(mapStateToProps, mapDispatchToProps)(MessagesPage);
+const MessagesPageContainer = compose(connect(mapStateToProps, mapDispatchToProps),
+withAuthRedirect)(MessagesPage);
 
 export default MessagesPageContainer;

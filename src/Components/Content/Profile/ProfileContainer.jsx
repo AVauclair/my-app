@@ -10,7 +10,12 @@ import { withRouter } from "../../../hocs/withRouter";
 class ProfileContainer extends React.Component {
     componentDidMount = () => {
         let userID = this.props.router.params.userID
-        if (!userID) {userID = this.props.authorizedUserID}
+        if (!userID) {
+            userID = this.props.authorizedUserID
+            if (!userID) {
+                this.props.history.push("/login")
+            }
+        }
 
         this.props.getUserProfile(userID)
         this.props.getUserStatus(userID)

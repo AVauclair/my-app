@@ -10,10 +10,21 @@ import {Route, Routes, BrowserRouter, Navigate} from 'react-router-dom';
 import MessagesPageContainter from './Components/Content/MessagesPage/MessagesPageContainter';
 import UsersPageContainer from './Components/Content/UsersPage/UsersPageContainer';
 import LoginPage from './Components/Login/LoginPage';
+import React from 'react';
+import { initializeApp } from './redux/reducers/appReducer';
+import {connect} from "react-redux"
+import Preloader from './common/Preloader/Preloader';
 
-const App = (props) => {
-  return (
-    <BrowserRouter>
+class App extends React.Component {
+  componentDidMount = () => {
+    this.props.initializeApp();
+}
+
+  render() {
+    if (!this.props.initialized) {return <Preloader/>}
+
+    return (
+      <BrowserRouter>
         <div className = "app-body">
           <HeaderContainer/>
           <Navigation/>
@@ -34,7 +45,12 @@ const App = (props) => {
           </div>
         </div>
       </BrowserRouter>
-  );
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+export default connect(mapStateToProps, {initializeApp})(App)
