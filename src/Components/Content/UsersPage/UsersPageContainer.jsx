@@ -1,18 +1,19 @@
 import UsersPage from "./UsersPage";
-import { follow, unfollow, setCurrentPage, getUsers, } from "./../../../redux/reducers/usersReducer"
+import { follow, unfollow, setCurrentPage, requestUsers, } from "./../../../redux/reducers/usersReducer"
 import {connect} from "react-redux"
 import React from "react"
 import Preloader from './../../../common/Preloader/Preloader'
 import { withAuthRedirect } from "../../../hocs/withAuthRedirect";
+import { getUsers, getTotalUsersCount, getCurrentPage, getPageSize, getIsFetching, getFollowingInProgress } from "../../../redux/reducers/users-selectors";
 
 class UsersContainer extends React.Component {
     componentDidMount = () => {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        this.props.requestUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onChangePage = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-        this.props.getUsers(pageNumber, this.props.pageSize)
+        this.props.requestUsers(pageNumber, this.props.pageSize)
     }
 
     render() {
@@ -33,17 +34,17 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        currentPage: state.usersPage.currentPage,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress,
+        users: getUsers(state),
+        currentPage: getCurrentPage(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state),
     }
 }
 
 let AuthRedirect = withAuthRedirect(UsersContainer) 
 
-let UsersPageContainer = connect(mapStateToProps, { follow, unfollow, setCurrentPage, getUsers})(AuthRedirect);
+let UsersPageContainer = connect(mapStateToProps, { follow, unfollow, setCurrentPage, requestUsers})(AuthRedirect);
 
 export default UsersPageContainer

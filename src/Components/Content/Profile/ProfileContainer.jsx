@@ -6,6 +6,7 @@ import { Navigate} from "react-router-dom";
 import { withAuthRedirect } from "../../../hocs/withAuthRedirect";
 import { compose } from "redux"
 import { withRouter } from "../../../hocs/withRouter";
+import { getProfile } from "../../../redux/reducers/profile-selectors";
 
 class ProfileContainer extends React.Component {
     componentDidMount = () => {
@@ -31,7 +32,7 @@ class ProfileContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile,
+    profile: state.profilePage.profile, //почему-то селектор он здесь не принимает
     userStatus: state.profilePage.userStatus,
     authorizedUserID: state.auth.userID,
     isAuth: state.auth.isAuth
