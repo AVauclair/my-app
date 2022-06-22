@@ -6,7 +6,7 @@ import User from "./User/User";
 let UsersPage = (props) => {
     return (
         <div className={module.usersPage}>
-        <Paginator totalUsersCount={props.totalUsersCount} pageSize={props.pageSize} currentPage={props.currentPage} onChangePage={props.onChangePage}/>
+        <Paginator totalItemsCount={props.totalItemsCount} pageSize={props.pageSize} currentPage={props.currentPage} onChangePage={props.onChangePage}/>
         {       
             props.users.map(u => <User user={u} 
                 key={u.id} 

@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 import React from "react"
 import Preloader from './../../../common/Preloader/Preloader'
 import { withAuthRedirect } from "../../../hocs/withAuthRedirect";
-import { getUsers, getTotalUsersCount, getCurrentPage, getPageSize, getIsFetching, getFollowingInProgress } from "../../../redux/reducers/users-selectors";
+import { getUsers, getTotalItemsCount, getCurrentPage, getPageSize, getIsFetching, getFollowingInProgress } from "../../../redux/reducers/users-selectors";
 
 class UsersContainer extends React.Component {
     componentDidMount = () => {
@@ -22,7 +22,7 @@ class UsersContainer extends React.Component {
         <UsersPage
         currentPage={this.props.currentPage}
         pageSize={this.props.pageSize}
-        totalUsersCount={this.props.totalUsersCount}
+        totalItemsCount={this.props.totalItemsCount}
         onChangePage={this.onChangePage}
         users={this.props.users}
         follow={this.props.follow}
@@ -37,7 +37,7 @@ let mapStateToProps = (state) => {
         users: getUsers(state),
         currentPage: getCurrentPage(state),
         pageSize: getPageSize(state),
-        totalUsersCount: getTotalUsersCount(state),
+        totalItemsCount: getTotalItemsCount(state),
         isFetching: getIsFetching(state),
         followingInProgress: getFollowingInProgress(state),
     }
