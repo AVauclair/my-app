@@ -4,6 +4,7 @@ const ADD_POST = "profile/ADD-POST"
 const SET_USER_PROFILE = "profile/SET-USER-PROFILE"
 const SET_USER_STATUS = "profile/SET-USER-STATUS"
 const SAVE_USER_PHOTO = "profile/SET-USER-PHOTO"
+const SAVE_PROFILE_DATA = "profile/SET-PROFILE-DATA"
 
 let initialState = {
   posts: [{
@@ -51,10 +52,16 @@ const profileReducer = (state = initialState, action) => {
     }
 
     case SAVE_USER_PHOTO: {
-      debugger
       return {
         ...state,
         profile: {...state.profile, photos: action.photos}
+      }
+    }
+
+    case SAVE_PROFILE_DATA: {
+      return {
+        ...state,
+        profile: {...state.profile, profile: action.profile}
       }
     }
 
@@ -68,6 +75,7 @@ export const addPostActionCreater = (newPostTextBody) => ({type: ADD_POST, newPo
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setUserStatus = (userStatus) => ({type: SET_USER_STATUS, userStatus})
 export const saveUserPhoto = (photos) => ({type: SAVE_USER_PHOTO, photos})
+export const saveProfileData = (profile) => ({type: SAVE_PROFILE_DATA, profile})
   
 export const getUserProfile = (userID) => async (dispatch) => {
   let data = await ProfileAPI.getUserProfile(userID)
@@ -90,6 +98,14 @@ export const setUserPhoto = (file) => async (dispatch) => {
   let data = await ProfileAPI.savePhoto(file)
   if (data.resultCode === 0 ) {
     dispatch(saveUserPhoto(data.data.photos))
+  }
+}
+
+export const setUserProfileData = (profile) => async (dispatch) => {
+  let data = await ProfileAPI.saveProfileData(profile)
+  debugger;
+  if (data.resultCode === 0 ) {
+    // dispatch(saveProfileData(data.profile))
   }
 }
 

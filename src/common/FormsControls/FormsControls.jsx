@@ -5,8 +5,7 @@ export const Textarea = ({input, meta, ...props}) => {
     return (
         <div className={module.formsControls + " " + (hasError ? module.error : "")}>
             <div><textarea {...input} {...props}/></div>
-            {/* {hasError && <span>Error</span>} это аналог строчки ниже, но я его не понимаю*/} 
-            {hasError ? <span>Error</span> : null}
+            {hasError && <span>Error</span>}
         </div>
     )
 }
@@ -16,8 +15,7 @@ export const Input = ({input, meta, ...props}) => {
     return (
         <div className={module.formsControls + " " + (hasError ? module.error : "")}>
             <div><input {...input} {...props}/></div>
-            {/* {hasError && <span>Error</span>} это аналог строчки ниже, но я его не понимаю*/} 
-            {hasError ? <span>Error</span> : null}
+            {hasError && <span>Error</span>}
         </div>
     )
 }

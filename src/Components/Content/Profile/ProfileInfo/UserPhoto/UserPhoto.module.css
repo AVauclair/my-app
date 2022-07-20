@@ -1,0 +1,8 @@
+.picture img {
+    width: 35%;
+    display: block;
+   }
+  
+  .userPhoto {
+    max-width: 400px;
+  }

@@ -13,10 +13,7 @@ const LoginForm = (props) => {
                 validate={[required, maxLength20]}></Field></div>
                 <div><Field placeholder={"Password"} name={"password"} component={Input} type={"password"}
                 validate={[required, maxLength20]}></Field></div>
-                <div>
-                    <Field name={"rememberMe"} component={"Input"} type={"checkbox"}></Field>
-                    <label htmlFor="rememberMe">Remember Me</label>
-                </div>
+                <div><Field name={"rememberMe"} component={"Input"} type={"checkbox"}></Field> Remember Me</div>
                 {props.error && <div className={module.formCommonError}>
                     {props.error}
                     </div>}

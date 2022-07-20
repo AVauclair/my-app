@@ -20,7 +20,6 @@ const ProfileStatus = (props) => {
 
     return (
         <div>
-            
             {props.isOwner && editMode
                 ? <div><input onChange={onChangeUserStatus} autoFocus={true} onBlur={deactivateEditMode} value={userStatus}></input></div>
                 : <div><span onClick={activateEditMode}>{props.userStatus || "----"}</span></div>}

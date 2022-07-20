@@ -1,6 +1,6 @@
 import Profile from "./Profile"
 import React from "react"
-import { getUserProfile, getUserStatus, updateUserStatus, setUserPhoto } from "../../../redux/reducers/profileReducer";
+import { getUserProfile, getUserStatus, updateUserStatus, setUserPhoto, setUserProfileData } from "../../../redux/reducers/profileReducer";
 import {connect} from "react-redux"
 import { Navigate} from "react-router-dom";
 import { withAuthRedirect } from "../../../hocs/withAuthRedirect";
@@ -47,6 +47,6 @@ let mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth
 })
 
-export default compose(connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, setUserPhoto}),
+export default compose(connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, setUserPhoto, setUserProfileData}),
 withRouter,
 withAuthRedirect)(ProfileContainer)

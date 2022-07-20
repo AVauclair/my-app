@@ -1,16 +1,25 @@
 import Preloader from '../../../../common/Preloader/Preloader'
 import module from './ProfileInfo.module.css'
 import ProfileStatus from "./ProfileStatus/ProfileStatus"
-import defaultAva from "../../../../images/defaultAva.jpg"
+import ProfileData from "./ProfileData/ProfileData"
+import ProfileDataEditPage from './ProfileData/ProfileDataEdit/ProfileDataEditPage'
+import UserPhoto from './UserPhoto/UserPhoto'
+import {useState} from 'react'
 
 const ProfileInfo = (props) => {
-  if (!props.profile) {
-    return <Preloader/>
+
+  let [editMode, setEditMode] = useState(false)
+
+  const activateEditMode = () => {
+      setEditMode(true)
   }
 
-  const setUserPhoto = (e) => {
-    if (e.target.files.length) {
-      props.setUserPhoto(e.target.files[0])}
+  const deactivateEditMode = () => {
+      setEditMode(false)
+  }
+
+  if (!props.profile) {
+    return <Preloader/>
   }
 
   return (
@@ -23,11 +32,10 @@ const ProfileInfo = (props) => {
         /> */}
       </div>
       <div className={module.descriptionBlock}>
-        <img src={props.profile.photos.large || defaultAva} className={module.userPhoto}/>
-        {props.isOwner && <input type={"file"} onChange={setUserPhoto}/>}
-        <br/>
-        About me: {props.profile.aboutMe}
-        <br/>
+        <UserPhoto profile={props.profile} setUserPhoto={props.setUserPhoto} isOwner={props.isOwner}/>
+        {editMode 
+        ? <ProfileDataEditPage profile={props.profile} exitEditMode={() => {deactivateEditMode()}} setUserProfileData={props.setUserProfileData} isOwner={props.isOwner}/> 
+        : <ProfileData profile={props.profile} toEditMode={() => {activateEditMode()}} isOwner={props.isOwner} />}
         <ProfileStatus userStatus={props.userStatus} updateUserStatus={props.updateUserStatus} isOwner={props.isOwner}/>
       </div>
     </div>
