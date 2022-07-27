@@ -34,7 +34,7 @@ const ProfileInfo = (props) => {
       <div className={module.descriptionBlock}>
         <UserPhoto profile={props.profile} setUserPhoto={props.setUserPhoto} isOwner={props.isOwner}/>
         {editMode 
-        ? <ProfileDataEditPage profile={props.profile} exitEditMode={() => {deactivateEditMode()}} setUserProfileData={props.setUserProfileData} isOwner={props.isOwner}/> 
+        ? <ProfileDataEditPage profile={props.profile} exitEditMode={() => {deactivateEditMode()}} setUserProfileData={props.setUserProfileData} setEditMode={setEditMode} isOwner={props.isOwner}/> 
         : <ProfileData profile={props.profile} toEditMode={() => {activateEditMode()}} isOwner={props.isOwner} />}
         <ProfileStatus userStatus={props.userStatus} updateUserStatus={props.updateUserStatus} isOwner={props.isOwner}/>
       </div>

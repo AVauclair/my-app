@@ -3,12 +3,14 @@ import { ReduxProfileDataEditForm } from "./ProfileDataEdit"
 const ProfileDataEditPage = (props) => {
 
   const onSubmit = (formData) => {
-    props.setUserProfileData(formData)
+    props.setUserProfileData(formData).then(() => {
+      props.setEditMode(false)
+    })
   }
   
   return (
     <div>
-        <ReduxProfileDataEditForm onSubmit={onSubmit} profile={props.profile}/>
+        <ReduxProfileDataEditForm onSubmit={onSubmit} initialValues={props.profile} profile={props.profile}/>
     </div>
   )
 }

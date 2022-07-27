@@ -1,0 +1,8 @@
+.userContacts {
+    padding-left: 20px;
+  }
+
+.formCommonError {
+    color: red;
+    font-weight: bold;
+}
