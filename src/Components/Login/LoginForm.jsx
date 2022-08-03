@@ -14,9 +14,12 @@ const LoginForm = (props) => {
                 <div><Field placeholder={"Password"} name={"password"} component={Input} type={"password"}
                 validate={[required, maxLength20]}></Field></div>
                 <div><Field name={"rememberMe"} component={"Input"} type={"checkbox"}></Field> Remember Me</div>
-                {props.error && <div className={module.formCommonError}>
-                    {props.error}
-                    </div>}
+                {props.error && <div className={module.formCommonError}>{props.error}</div>}
+
+                {props.captchaURL && <img src={props.captchaURL}/>}
+                {props.captchaURL && <div><Field placeholder={"Captcha"} name={"captcha"} component={Input}
+                validate={[required]}></Field></div>}
+                
                 <div><button>Login</button></div>
             </div>
         </form>
